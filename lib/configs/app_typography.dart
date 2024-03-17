@@ -8,7 +8,7 @@ class AppText {
 
   static TextStyle custom = TextStyle(
     color: AppColors.greyColor,
-    fontSize: AppDimensions.normalize(5.5),
+    fontSize: AppDimensions.normalize(5.2),
     fontFamily: AppStrings.fontFamily,
     fontWeight: FontWeight.w500,
   );

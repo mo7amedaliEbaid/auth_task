@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     log("Token = ${injector<HiveHelper>().getToken()}");
-    return/* MultiBlocProvider(
+    return /* MultiBlocProvider(
       providers: [
-        *//* BlocProvider(
+        */ /* BlocProvider(
           create: (context) => AuthBloc(
             authRepository: context.read<AuthRepository>(),
           )..add(InitializeAuthEvent()),
@@ -94,17 +94,20 @@ class MyApp extends StatelessWidget {
           create: (context) => PlaceOrderCubit(
             ordersRepository: OrdersRepository(),
           ),
-        ),*//*
+        ),*/ /*
       ],*/
-     /* child:*/ MaterialApp(
-        title: 'Auth Task',
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: AppRoutes.login,
-        theme: ThemeData(
-          fontFamily: AppStrings.fontFamily,
-          scaffoldBackgroundColor: AppColors.scaffoldBackground,
+        /* child:*/ MaterialApp(
+      title: 'Auth Task',
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: AppRoutes.login,
+      theme: ThemeData(
+        fontFamily: AppStrings.fontFamily,
+        scaffoldBackgroundColor: AppColors.scaffoldBackground,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.greenColor,
         ),
+      ),
       //),
     );
   }

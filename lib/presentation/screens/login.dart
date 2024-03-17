@@ -13,6 +13,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isObscure = true;
+  bool isCheckBoxToggled = true;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,67 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: AppText.custom,
                   ),
                 ),
-                customTextField(labelText: '', controller: emailController)
+                Space.yf(.4),
+                customTextField(controller: emailController),
+                Space.yf(),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Password",
+                    style: AppText.custom,
+                  ),
+                ),
+                Space.yf(.4),
+                customTextField(
+                  controller: passwordController,
+                  obscureText: isObscure,
+                  suffix: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isObscure = !isObscure;
+                      });
+                    },
+                    child: Icon(
+                      isObscure
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                    ),
+                  ),
+                ),
+                Space.yf(.2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                            value: isCheckBoxToggled,
+                            shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                AppDimensions.normalize(1),
+                              ),
+                            ),
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            fillColor:
+                                MaterialStatePropertyAll(Colors.green.shade300),
+                            onChanged: (value) {
+                              setState(() {
+                                isCheckBoxToggled = value!;
+                              });
+                            }),
+                        Text(
+                          "Remember me",
+                          style: AppText.custom,
+                        )
+                      ],
+                    ),
+                    Text(
+                      "Forgot Password?",
+                      style: AppText.custom,
+                    )
+                  ],
+                )
               ],
             ),
           ),
