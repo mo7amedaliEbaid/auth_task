@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:mohamed_ali/core/core.dart';
 
-//import '../core/constants/strings.dart';
 import 'app_dimensions.dart';
 
 class AppText {
   static TextStyle? btn;
+
+  static TextStyle custom = TextStyle(
+    color: AppColors.greyColor,
+    fontSize: AppDimensions.normalize(5.5),
+    fontFamily: AppStrings.fontFamily,
+    fontWeight: FontWeight.w500,
+  );
 
   // Headings
   static TextStyle? h1;
@@ -27,12 +34,11 @@ class AppText {
   static TextStyle? l2b;
 
   static init() {
-    const b = FontWeight.bold;
+    const b = FontWeight.w600;
     const baseStyle = TextStyle(
-       // fontFamily: AppStrings.fontFamily,
-
-        wordSpacing: 1,
-        color: Color(0xff6e317c));
+      fontFamily: AppStrings.fontFamily,
+      wordSpacing: .5,
+    );
 
     h1 = baseStyle.copyWith(fontSize: AppDimensions.font(12.0));
     h1b = h1!.copyWith(fontWeight: b);

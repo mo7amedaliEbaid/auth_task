@@ -1,5 +1,5 @@
 sealed class AppStrings {
-  static const String fontFamily = "Alex";
+  static const String fontFamily = "Montserrat";
   static const String welcome = "Welcome to the app";
   static const String login = "Login";
   static const String register = "Register";
