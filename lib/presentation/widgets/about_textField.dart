@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:mohamed_ali/configs/configs.dart';
 
-Widget customTextField(
+Widget aboutTextField(
     {Widget? prefix,
-    Widget? suffix,
-    bool? obscureText,
-    String? Function(String?)? validator,
-    void Function(String)? onChanged,
-    required TextEditingController controller}) {
+      Widget? suffix,
+      bool? obscureText,
+      String? Function(String?)? validator,
+      void Function(String)? onChanged,
+      required TextEditingController controller}) {
   return TextFormField(
     autovalidateMode: AutovalidateMode.onUserInteraction,
     validator: validator,
     controller: controller,
     onChanged: onChanged,
     cursorColor: Colors.grey,
+    maxLines: 4,
     obscureText: obscureText ?? false,
     style: AppText.b2b,
     decoration: InputDecoration(

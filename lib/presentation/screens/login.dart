@@ -23,13 +23,14 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          minimum: Space.vf(4),
+          minimum: Space.vf(3),
           child: Padding(
             padding: Space.hf(1.2),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 topRow(title: "Account Login"),
+                Space.yf(.8),
                 Center(
                   child: SvgPicture.asset(
                     AppAssets.loginSvg,
@@ -102,6 +103,35 @@ class _LoginScreenState extends State<LoginScreen> {
                       "Forgot Password?",
                       style: AppText.custom,
                     )
+                  ],
+                ),
+                Space.yf(1.35),
+                customElevatedButton(
+                  onTap: () {},
+                  text: 'Login',
+                  heightFraction: 23,
+                  width: double.infinity,
+                  color: Colors.green.shade300,
+                ),
+                Space.yf(1.35),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don’t have an account ? ",
+                      style: AppText.custom
+                          .copyWith(fontSize: AppDimensions.normalize(5.6)),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRoutes.register);
+                      },
+                      child: Text(
+                        "Register",
+                        style:
+                            AppText.b1b?.copyWith(color: Colors.green.shade300),
+                      ),
+                    ),
                   ],
                 )
               ],

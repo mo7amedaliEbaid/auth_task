@@ -3,13 +3,15 @@ import '../../presentation/screens.dart';
 import '../core.dart';
 
 sealed class AppRouter {
-
-
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case AppRoutes.login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-     /* case ads:
+      case AppRoutes.register:
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case AppRoutes.completeData:
+        return MaterialPageRoute(builder: (_) => const CompleteDataScreen());
+      /* case ads:
         return MaterialPageRoute(builder: (_) => const AdsScreen());
       case choose:
         return MaterialPageRoute(builder: (_) => const ChooseScreen());
