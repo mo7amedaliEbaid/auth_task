@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mohamed_ali/core/core.dart';
 import 'package:mohamed_ali/configs/configs.dart';
+import 'package:mohamed_ali/data/data.dart';
 import 'package:mohamed_ali/presentation/widgets.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -204,8 +205,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   alignment: Alignment.centerRight,
                   child: customElevatedButton(
                     onTap: () {
+                      Step1User step1User = Step1User(
+                        email: emailController.text.trim(),
+                        fName: firstNameController.text.trim(),
+                        lName: lastNameController.text.trim(),
+                        password: confirmPasswordController.text.trim(),
+                        userType: selectedOption == "Seller"
+                            ? 0
+                            : selectedOption == "Buyer"
+                                ? 1
+                                : 2,
+                      );
                       Navigator.of(context).pushNamed(
                         AppRoutes.completeData,
+                        arguments: step1User,
                       );
                     },
                     text: "Next",

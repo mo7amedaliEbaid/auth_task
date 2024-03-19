@@ -41,3 +41,6 @@ export 'enums/enums.dart';
 
 //observer
 export 'observer/bloc_observer.dart';
+
+//functions
+export 'functions/file_to_string.dart';

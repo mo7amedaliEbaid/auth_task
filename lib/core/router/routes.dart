@@ -3,5 +3,5 @@ sealed class AppRoutes{
 
   static const String register='/register';
   static const String completeData='/completeData';
-  static const String changePassword='/changePassword';
+  static const String whoAmI='/whoAmI';
 }

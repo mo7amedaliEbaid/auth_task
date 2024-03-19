@@ -6,11 +6,14 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mohamed_ali/core/core.dart';
 import 'package:mohamed_ali/configs/configs.dart';
 import 'package:mohamed_ali/cubits/cubits.dart';
+import 'package:mohamed_ali/data/data.dart';
 import 'package:mohamed_ali/presentation/widgets.dart';
 import 'dart:io';
 
 class CompleteDataScreen extends StatefulWidget {
-  const CompleteDataScreen({super.key});
+  const CompleteDataScreen({super.key, required this.step1user});
+
+  final Step1User step1user;
 
   @override
   State<CompleteDataScreen> createState() => _CompleteDataScreenState();
@@ -99,11 +102,9 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                                   File newImage =
                                       File(result.files.first.path!);
 
-                                  if (newImage != null) {
-                                    setState(() {
-                                      image = File(newImage.path);
-                                    });
-                                  }
+                                  setState(() {
+                                    image = File(newImage.path);
+                                  });
                                 }
                               },
                             ),
@@ -392,12 +393,48 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                   ),
                 ),
                 Space.yf(2),
-                customElevatedButton(
-                  onTap: () {},
-                  text: "Submit",
-                  heightFraction: 23,
-                  width: double.infinity,
-                  color: Colors.green.shade300,
+                BlocBuilder<SelectGenderCubit, SelectGenderState>(
+                  builder: (context, genderState) {
+                    if (genderState is GenderSelected) {
+                      return BlocBuilder<CounterCubit, int>(
+                        builder: (context, counterState) {
+                          return BlocBuilder<SkillsCubit, SkillsState>(
+                            builder: (context, skillsState) {
+                              return customElevatedButton(
+                                onTap: () {
+                                  UserModel userModel = UserModel(
+                                      userType: widget.step1user.userType,
+                                      password: widget.step1user.password,
+                                      lName: widget.step1user.lName,
+                                      fName: widget.step1user.fName,
+                                      email: widget.step1user.email,
+                                      about: aboutController.text.trim(),
+                                      birthDate: selectedDate
+                                          .toString()
+                                          .substring(0, 10),
+                                      gender: genderState.genderType,
+                                      img: image != null
+                                          ? base64String(image!)
+                                          : null,
+                                      salary: counterState,
+                                      skills: skillsState.skills);
+                                  injector<HiveHelper>()
+                                      .setUserModel(userModel);
+                                  Navigator.of(context)
+                                      .pushNamed(AppRoutes.whoAmI);
+                                },
+                                text: "Submit",
+                                heightFraction: 23,
+                                width: double.infinity,
+                                color: Colors.green.shade300,
+                              );
+                            },
+                          );
+                        },
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  },
                 )
               ],
             ),
