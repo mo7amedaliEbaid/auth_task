@@ -5,6 +5,7 @@ Widget customTextField(
     {Widget? prefix,
     Widget? suffix,
     bool? obscureText,
+    int? maxLines,
     String? Function(String?)? validator,
     void Function(String)? onChanged,
     required TextEditingController controller}) {
@@ -14,6 +15,7 @@ Widget customTextField(
     controller: controller,
     onChanged: onChanged,
     cursorColor: Colors.grey,
+    maxLines: maxLines,
     obscureText: obscureText ?? false,
     style: AppText.b2b,
     decoration: InputDecoration(

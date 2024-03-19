@@ -58,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 customTextField(
                   controller: passwordController,
                   obscureText: isObscure,
+                  maxLines: 1,
                   suffix: GestureDetector(
                     onTap: () {
                       setState(() {

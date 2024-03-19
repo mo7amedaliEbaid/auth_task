@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mohamed_ali/core/core.dart';
 import 'package:mohamed_ali/configs/configs.dart';
-import 'package:mohamed_ali/cubits/salary_counter/counter_cubit.dart';
+import 'package:mohamed_ali/cubits/cubits.dart';
 import 'package:mohamed_ali/presentation/widgets.dart';
 
 class CompleteDataScreen extends StatefulWidget {
@@ -15,6 +15,21 @@ class CompleteDataScreen extends StatefulWidget {
 
 class _CompleteDataScreenState extends State<CompleteDataScreen> {
   TextEditingController aboutController = TextEditingController();
+  DateTime? selectedDate;
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +63,10 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                   ),
                 ),
                 Space.yf(.4),
-                aboutTextField(controller: aboutController),
+                customTextField(
+                  controller: aboutController,
+                  maxLines: 4,
+                ),
                 Space.yf(),
                 Align(
                   alignment: Alignment.centerLeft,
@@ -95,6 +113,62 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                       )
                     ],
                   ),
+                ),
+                Space.yf(),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Birth Date",
+                    style: AppText.custom,
+                  ),
+                ),
+                Space.yf(.4),
+                Container(
+                  padding: Space.all(1.3, 1),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(
+                      AppDimensions.normalize(7),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        selectedDate == null
+                            ? ""
+                            : "${selectedDate!.year}-${selectedDate!.month}-${selectedDate!.day}",
+                        style: AppText.b2b,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          _selectDate(context);
+                        },
+                        child: const Icon(
+                          Icons.date_range,
+                          color: Colors.grey,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Space.yf(),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Gender",
+                    style: AppText.custom,
+                  ),
+                ),
+                Space.yf(),
+                Row(
+                  children: [
+                    Row(
+                      children: [
+
+                      ],
+                    )
+                  ],
                 )
               ],
             ),

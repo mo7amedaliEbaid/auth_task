@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mohamed_ali/core/core.dart';
-import 'package:mohamed_ali/cubits/salary_counter/counter_cubit.dart';
+import 'package:mohamed_ali/cubits/cubits.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => CounterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => SelectGenderCubit(),
         ),
       ],
       child: MaterialApp(

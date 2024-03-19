@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mohamed_ali/configs/configs.dart';
@@ -10,10 +9,10 @@ class CounterCubit extends Cubit<int> {
   /// {@macro counter_cubit}
   CounterCubit() : super(1000);
 
-  /// Add 1 to the current state.
+  /// Add 100 to the current state.
   void increment() => emit(state + 100);
 
-  /// Subtract 1 from the current state.
+  /// Subtract 100 from the current state.
   void decrement(BuildContext context) {
     state > 100
         ? emit(state - 100)

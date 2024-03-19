@@ -101,6 +101,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 customTextField(
                   controller: passwordController,
                   obscureText: isPasswordObscure,
+                  maxLines: 1,
                   suffix: GestureDetector(
                     onTap: () {
                       setState(() {
@@ -126,6 +127,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 customTextField(
                   controller: confirmPasswordController,
                   obscureText: isConfirmPasswordObscure,
+                  maxLines: 1,
                   suffix: GestureDetector(
                     onTap: () {
                       setState(() {
@@ -151,6 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 customTextField(
                   controller: confirmPasswordController,
                   obscureText: isConfirmPasswordObscure,
+                  maxLines: 1,
                   suffix: GestureDetector(
                     onTap: () {
                       setState(() {
