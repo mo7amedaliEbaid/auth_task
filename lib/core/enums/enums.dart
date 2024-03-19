@@ -5,4 +5,4 @@ enum Method {
   delete,
 }
 
-enum HiveKeys { darkModeKey, langKey, isFirst, token, user }
+enum HiveKeys {user }

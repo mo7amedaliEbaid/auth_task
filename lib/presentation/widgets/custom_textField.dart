@@ -17,7 +17,7 @@ Widget customTextField(
     cursorColor: Colors.grey,
     maxLines: maxLines,
     obscureText: obscureText ?? false,
-    style: AppText.b2b,
+    style: AppText.b1,
     decoration: InputDecoration(
       errorMaxLines: 5,
       enabledBorder: OutlineInputBorder(

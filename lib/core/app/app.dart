@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log("Token = ${injector<HiveHelper>().getToken()}");
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -18,6 +17,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SelectGenderCubit(),
+        ),
+        BlocProvider(
+          create: (context) => SkillsCubit(),
         ),
       ],
       child: MaterialApp(

@@ -45,6 +45,8 @@ dependencies:
   dartz:
   flutter_bloc:
   flutter_svg:
+  image_picker:
+  file_picker:
 
 dev_dependencies:
   flutter_test:

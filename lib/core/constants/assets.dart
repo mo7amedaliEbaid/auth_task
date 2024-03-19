@@ -15,4 +15,7 @@ sealed class AppAssets {
   static const String circleImage = "assets/svg/circleImage.svg";
   static const String decrement = "assets/svg/decrement.svg";
   static const String increment = "assets/svg/increment.svg";
+  static const String greenRadio = "assets/svg/green_radio.svg";
+  static const String greyRadio = "assets/svg/grey_radio.svg";
+  static const String vector = "assets/svg/vector.svg";
 }
