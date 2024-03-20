@@ -32,6 +32,18 @@ Widget customTextField(
         ),
         borderSide: const BorderSide(color: Colors.transparent),
       ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(
+          AppDimensions.normalize(7),
+        ),
+        borderSide: const BorderSide(color: Colors.transparent),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(
+          AppDimensions.normalize(7),
+        ),
+        borderSide: const BorderSide(color: Colors.transparent),
+      ),
       contentPadding: Space.all(1.2, 1.1),
       fillColor: Colors.grey.shade100,
       filled: true,
@@ -39,7 +51,7 @@ Widget customTextField(
       alignLabelWithHint: true,
       prefixIcon: prefix,
       suffixIcon: suffix,
-      errorStyle: AppText.b2b!.copyWith(
+      errorStyle: AppText.l1b!.copyWith(
         color: Colors.red,
       ),
     ),

@@ -26,7 +26,9 @@ class MyApp extends StatelessWidget {
         title: 'Auth Task',
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: AppRoutes.login,
+        initialRoute: injector<HiveHelper>().getUser() != null
+            ? AppRoutes.whoAmI
+            : AppRoutes.login,
         theme: ThemeData(
           fontFamily: AppStrings.fontFamily,
           scaffoldBackgroundColor: AppColors.scaffoldBackground,

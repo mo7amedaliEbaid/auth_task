@@ -1,4 +1,36 @@
 class Validators {
+  String? validateFirstName(String? firstName) {
+    if (firstName!.isEmpty) {
+      return 'First Name is required';
+    }
+    if (firstName.length > 50) {
+      return "First name must not exceed 50 characters.";
+    }
+    return null;
+  }
+
+  String? validateLastName(String? lastName) {
+    if (lastName!.isEmpty) {
+      return 'Last Name is required';
+    }
+    if (lastName.length > 50) {
+      return "Last name must not exceed 50 characters.";
+    }
+    return null;
+  }
+
+  String? validateBrief(String? brief) {
+    if (brief!.isEmpty) {
+      return 'Brief is required';
+    }
+    if (brief.length < 10) {
+      return "Brief must be at least 10 characters long.";
+    } else if (brief.length > 1000) {
+      return "Brief must not exceed 1000 characters.";
+    }
+    return null;
+  }
+
   String? validateEmail(String? email) {
     if (email!.isEmpty) {
       return 'Email is required';
@@ -9,6 +41,7 @@ class Validators {
     return null;
   }
 
+/*
   String? validatePassword(String? password) {
     if (password == null || password.isEmpty) {
       return 'Password is required';
@@ -20,6 +53,16 @@ class Validators {
         !password.contains(RegExp(r'[0-9]')) ||
         !password.contains(RegExp(r'[!@#\$%\^&\*]'))) {
       return 'Password must be at least 8 latin characters long, contain at least one lowercase letter, one uppercase letter, one number and one special character';
+    }
+    return null;
+  }*/
+
+  String? validatePassword(String? password) {
+    if (password!.isEmpty) {
+      return 'Password is required';
+    }
+    if (password.length < 8) {
+      return "Password must be at least 8 characters long.";
     }
     return null;
   }

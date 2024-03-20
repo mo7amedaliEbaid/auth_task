@@ -10,7 +10,17 @@ class CounterCubit extends Cubit<int> {
   CounterCubit() : super(1000);
 
   /// Add 100 to the current state.
-  void increment() => emit(state + 100);
+  void increment(BuildContext context) => state < 1000
+      ? emit(state + 100)
+      : ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(
+              "Maximum Salary is 1000 SAR",
+              style: AppText.b1b?.copyWith(color: Colors.red),
+            ),
+          ),
+        );
 
   /// Subtract 100 from the current state.
   void decrement(BuildContext context) {
@@ -21,7 +31,7 @@ class CounterCubit extends Cubit<int> {
               duration: const Duration(seconds: 1),
               content: Text(
                 "Minimum Salary is 100 SAR",
-                style: AppText.h3b?.copyWith(color: Colors.red),
+                style: AppText.b1b?.copyWith(color: Colors.red),
               ),
             ),
           );
