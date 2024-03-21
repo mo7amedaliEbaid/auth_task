@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: injector<HiveHelper>().getUser() != null
-            ? AppRoutes.whoAmI
+            ? AppRoutes.root
             : AppRoutes.login,
         theme: ThemeData(
           fontFamily: AppStrings.fontFamily,

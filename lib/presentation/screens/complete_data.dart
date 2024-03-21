@@ -175,7 +175,7 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                   Container(
                     padding: Space.all(2, .8),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                      color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(
                         AppDimensions.normalize(7),
                       ),
@@ -222,7 +222,7 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                   Container(
                     padding: Space.all(1.3, 1),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
+                      color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(
                         AppDimensions.normalize(7),
                       ),
@@ -350,7 +350,7 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                           width: double.infinity,
                           padding: Space.all(.8, .6),
                           decoration: BoxDecoration(
-                            color: Colors.grey.shade100,
+                            color: Colors.grey.shade200,
                             borderRadius: BorderRadius.circular(
                               AppDimensions.normalize(7),
                             ),
@@ -450,7 +450,7 @@ class _CompleteDataScreenState extends State<CompleteDataScreen> {
                                         ),
                                       );
                                       Navigator.of(context)
-                                          .pushNamed(AppRoutes.whoAmI);
+                                          .pushNamed(AppRoutes.root);
                                     } else if (skillsState.skills.isEmpty) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(

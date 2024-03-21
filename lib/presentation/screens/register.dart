@@ -188,7 +188,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
+                        color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(
                           AppDimensions.normalize(7),
                         ),

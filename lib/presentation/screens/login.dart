@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       setState(() {
                         isLoading = false;
                       });
-                      Navigator.of(context).pushNamed(AppRoutes.whoAmI);
+                      Navigator.of(context).pushNamed(AppRoutes.root);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
