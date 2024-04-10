@@ -35,14 +35,24 @@ class _WhoAmIScreenState extends State<WhoAmIScreen> {
           padding: Space.hf(1.2),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Who Am I",
-                  style: AppText.h3b,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Who Am I",
+                    style: AppText.h3b,
+                  ),
+                  Space.xm!,
+                  IconButton(
+                    onPressed: () {
+                      injector<HiveHelper>().logout(context);
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                    ),
+                  )
+                ],
               ),
-              Space.yf(),
               imageFromBase64String(injector<HiveHelper>().getUser()!.img!),
               Space.yf(1.8),
               Row(

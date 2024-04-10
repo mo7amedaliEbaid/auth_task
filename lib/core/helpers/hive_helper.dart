@@ -2,6 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../data/models/user_model.dart';
 import '../core.dart';
+import 'package:flutter/material.dart';
 
 class HiveHelper {
   final String _name = 'mohamed';
@@ -49,12 +50,12 @@ class HiveHelper {
         : true;
   }
 
-  /* Future<void> logout(BuildContext context) async {
-    await Hive.box(_HiveKeys.user.name + _name).clear();
-    await Hive.box(_HiveKeys.token.name + _name).clear();
-    Navigator.of(context)
-        .pushNamedAndRemoveUntil(Routes.login, (Route<dynamic> route) => false);
-  }*/
+  Future<void> logout(BuildContext context) async {
+    await Hive.box(HiveKeys.user.name + _name).clear();
+   // await Hive.box(HiveKeys.token.name + _name).clear();
+    Navigator.of(context).pushNamedAndRemoveUntil(
+        AppRoutes.login, (Route<dynamic> route) => false);
+  }
 
   Future<void> setToken(String token) async {
     await Hive.box(HiveKeys.token.name + _name)
